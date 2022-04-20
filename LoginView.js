@@ -2,6 +2,9 @@ import React from "react";
 import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
 import base64 from "base-64"; // Use this library to encode `username:password` to base64
 
+// Let's try to use AsyncStorage instead. Probably not supposed to use 571 server anymore.
+
+
 class LoginView extends React.Component {
   // Use Basic access authentication (https://en.wikipedia.org/wiki/Basic_access_authentication) to authenticate the user.
   // React Native 1 lecture covered a good example of how to do this.
