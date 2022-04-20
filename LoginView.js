@@ -36,7 +36,7 @@ class LoginView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-        <Text style={styles.title}>FitnessTracker</Text>
+        <Text style={styles.title}>ACLTech</Text>
         <Text style={styles.center}>Welcome! Please login or signup to continue.</Text>
 
         <TextInput

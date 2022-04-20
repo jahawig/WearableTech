@@ -62,7 +62,7 @@ class SignupView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-        <Text style={styles.title}>FitnessTracker</Text>
+        <Text style={styles.title}>ACLTech</Text>
         <Text style={styles.center}>New here? Let's get started!</Text>
         <Text style={styles.center}>Plase create an accout below.</Text>
         <TextInput
