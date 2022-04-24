@@ -6,7 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import LoginView from "./LoginView";
 import SignupView from "./SignupView";
 import ProfileView from "./ProfileView";
-import ExercisesView from "./ExercisesView";
+import ViewPastData from "./ViewPastData";
+import RecordDataView from "./RecordDataView";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -77,11 +78,24 @@ class App extends React.Component {
             // We can also nest another navigator (e.g. Bottom Tabs, Drawer, etc.) inside a stack navigator.
             //  See https://reactnavigation.org/docs/nesting-navigators on how to nest navigators.
             <>
-              <Stack.Screen name={"Hello, " + this.getUsername()} options={{headerLeft: () => (<Button title = "Logout"  onPress={()=>this.setAccessToken(null)}></Button>), headerRight: () => (<Ionicons name={'ios-information-circle'} size = {30}/>)}}>
+              <Stack.Screen name={"ACLTech"} options={{headerLeft: () => (<Button title = "Logout"  onPress={()=>this.setAccessToken(null)}></Button>), headerRight: () => (<Ionicons name={'ios-information-circle'} size = {30}/>)}}>
                 {(props) => (
-                  <BottomTab {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                  <ProfileView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
               </Stack.Screen>
+
+              <Stack.Screen name={"Past Data View"}>
+                {(props) => (
+                  <ViewPastData {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Record New Data"}>
+                {(props) => (
+                  <RecordDataView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
             </>
 
 

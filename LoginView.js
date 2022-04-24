@@ -17,7 +17,6 @@ class LoginView extends React.Component {
   }
 
   test_log = async() => {
-    // console.log("Entered");
     fetch('https://cs571.cs.wisc.edu/login', {
       method: 'GET',
       headers: {
