@@ -9,6 +9,7 @@ import ProfileView from "./ProfileView";
 import ViewPastData from "./ViewPastData";
 import RecordDataView from "./RecordDataView";
 import ProfileSpecifics from "./ProfileSpecifics";
+import CalibrationView from "./CalibrationView";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -16,7 +17,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Review the navigators from React Native 2 lecture.
 const Stack = createStackNavigator(); // Stack Navigator (https://reactnavigation.org/docs/stack-navigator)
-const Tab = createBottomTabNavigator(); // Bottom Tabs Navigator (https://reactnavigation.org/docs/tab-based-navigation)
 
 class App extends React.Component {
   constructor() {
@@ -100,6 +100,12 @@ class App extends React.Component {
               <Stack.Screen name={"Your Profile"}>
                 {(props) => (
                   <RecordDataView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Calibration"}>
+                {(props) => (
+                  <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
               </Stack.Screen>
 

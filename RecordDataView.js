@@ -20,6 +20,12 @@ class ExercisesView extends React.Component {
         <ScrollView style={styles.scrollView}>
           <Text style={styles.title}>Data Collection Process</Text>
           <CheckBox
+            title='Are your sensors on and ready to  pair with your device?'
+            checked={this.state.selected}
+            onPress={() => this.setState({ selected: !this.state.selected })}
+          />
+          
+          <CheckBox
             title='Are your sensors fully charged?'
             checked={this.state.selected}
             onPress={() => this.setState({ selected: !this.state.selected })}
@@ -30,6 +36,10 @@ class ExercisesView extends React.Component {
             checked={this.state.selected1}
             onPress={() => this.setState({ selected1: !this.state.selected1 })}
           />
+
+          <TouchableOpacity style={styles.smallBold} onPress={() => this.props.navigation.navigate("Calibration")}>
+            <Text style={styles.creamText}>Begin Calibration</Text>
+          </TouchableOpacity>
 
           <Text style={styles.center}>Screen: Record Data</Text>
         </ScrollView>
@@ -89,32 +99,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
+  creamText:{
+    textAlign: "center",
+    marginVertical: 10,
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "#fff1d0",
   },
   smallBold: {
     textAlign: "center",
     marginVertical: 10,
+    marginHorizontal: 60,
+    backgroundColor: "#800000",
     fontWeight: "bold",
     fontSize: 18,
-  },
-  mediumBold: {
-    textAlign: "center",
-    marginVertical: 10,
-    fontWeight: "bold",
-    color: '#660000',
-    fontSize: 28,
-  },
-  checkbox: {
-    alignSelf: "center",
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  label: {
-    margin: 8,
+    borderRadius: 25
   },
 });
 
