@@ -1,21 +1,16 @@
 import React from "react";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { CheckBox } from "react-native-elements";
-import { useState } from "react";
 
 class ExercisesView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      isSelected: false
+      selected: false,
+      selected1: false,
     }
   }
-  setSelection
-
-  setSelection = (selected) => {
-    this.setState({ isSelected: selected });
-  };
 
 
 
@@ -24,8 +19,17 @@ class ExercisesView extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
           <Text style={styles.title}>Data Collection Process</Text>
-          <Text style={styles.center}>- Ensure that sensors are fully charged</Text>
-          
+          <CheckBox
+            title='Are your sensors fully charged?'
+            checked={this.state.selected}
+            onPress={() => this.setState({ selected: !this.state.selected })}
+          />
+
+          <CheckBox
+            title='Are the sensors outfitted in the athletic sleeve and fitted tight to your leg?'
+            checked={this.state.selected1}
+            onPress={() => this.setState({ selected1: !this.state.selected1 })}
+          />
 
           <Text style={styles.center}>Screen: Record Data</Text>
         </ScrollView>
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignContent: "center",
-    marginHorizontal: 30,
+    marginHorizontal: 0,
   },
   title: {
     textAlign: "center",
