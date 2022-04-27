@@ -16,7 +16,6 @@ class ExercisesView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          
           <Text style={styles.center}>Screen: Calibration View</Text>
         </ScrollView>
       </View>

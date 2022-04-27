@@ -9,6 +9,7 @@ class ExercisesView extends React.Component {
     this.state = {
       selected: false,
       selected1: false,
+      selected2: false,
     }
   }
 
@@ -18,7 +19,7 @@ class ExercisesView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.title}>Data Collection Process</Text>
+          <Text style={styles.title}>Data Collection Checklist</Text>
           <CheckBox
             title='Are your sensors on and ready to  pair with your device?'
             checked={this.state.selected}
@@ -27,17 +28,17 @@ class ExercisesView extends React.Component {
           
           <CheckBox
             title='Are your sensors fully charged?'
-            checked={this.state.selected}
-            onPress={() => this.setState({ selected: !this.state.selected })}
-          />
-
-          <CheckBox
-            title='Are the sensors outfitted in the athletic sleeve and fitted tight to your leg?'
             checked={this.state.selected1}
             onPress={() => this.setState({ selected1: !this.state.selected1 })}
           />
 
-          <TouchableOpacity style={styles.smallBold} onPress={() => this.props.navigation.navigate("Calibration")}>
+          <CheckBox
+            title='Are the sensors outfitted in the athletic sleeve and fitted tight to your leg?'
+            checked={this.state.selected2}
+            onPress={() => this.setState({ selected2: !this.state.selected2 })}
+          />
+
+          <TouchableOpacity style={this.state.selected && this.state.selected1 && this.state.selected2 ? styles.smallBold : styles.disabled } onPress={() => this.props.navigation.navigate("Calibration") }>
             <Text style={styles.creamText}>Begin Calibration</Text>
           </TouchableOpacity>
 
@@ -111,6 +112,15 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 60,
     backgroundColor: "#800000",
+    fontWeight: "bold",
+    fontSize: 18,
+    borderRadius: 25
+  },
+  disabled: {
+    textAlign: "center",
+    marginVertical: 10,
+    marginHorizontal: 60,
+    backgroundColor: "gray",
     fontWeight: "bold",
     fontSize: 18,
     borderRadius: 25
