@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from "react";
-import { Button } from "react-native";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, View, Button } from "react-native";
+
 
 import LoginView from "./LoginView";
 import SignupView from "./SignupView";
@@ -12,7 +12,6 @@ import RecordDataView from "./RecordDataView";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import BottomTab from './BottomTab';
 
 // Review the navigators from React Native 2 lecture.
 const Stack = createStackNavigator(); // Stack Navigator (https://reactnavigation.org/docs/stack-navigator)
@@ -23,15 +22,16 @@ class App extends React.Component {
     super();
 
     // Feel free to add more states here
+    // Change this to false before I am done
     this.state = {
-      accessToken: undefined,
+      logged: true,
       username: undefined,
     };
   }
 
   // Set the access token
   setAccessToken = (newAccessToken) => {
-    this.setState({ accessToken: newAccessToken });
+    this.setState({ logged: newAccessToken });
   };
 
   getAccessToken = () => {
@@ -56,7 +56,7 @@ class App extends React.Component {
               How do we do this? See https://reactnavigation.org/docs/auth-flow
             */}
 
-          {this.state.accessToken != null ? (
+          {this.state.logged == false ? (
             // No token found, user isn't signed in
             <>
               <Stack.Screen name="Login">
@@ -78,7 +78,7 @@ class App extends React.Component {
             // We can also nest another navigator (e.g. Bottom Tabs, Drawer, etc.) inside a stack navigator.
             //  See https://reactnavigation.org/docs/nesting-navigators on how to nest navigators.
             <>
-              <Stack.Screen name={"ACLTech"} options={{headerLeft: () => (<Button title = "Logout"  onPress={()=>this.setAccessToken(null)}></Button>), headerRight: () => (<Ionicons name={'ios-information-circle'} size = {30}/>)}}>
+              <Stack.Screen name={"Home"}>
                 {(props) => (
                   <ProfileView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
@@ -106,5 +106,11 @@ class App extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  side: {
+    marginRight: 15,
+  }
+});
 
 export default App;

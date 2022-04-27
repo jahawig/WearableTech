@@ -37,13 +37,12 @@ class LoginView extends React.Component {
           {/* Button to take the filled in fields and login*/}
           <Button
             title="LOGIN"
+            onPress={() => this.props.setAccessToken(true)}
           />
 
           <Button
             title="SIGNUP"
             onPress={() => this.props.navigation.navigate('SignUp')}
-            buttonStyle={{ backgroundColor: '#660000' }}
-            textStyle={{ color: "white" }}
           />
 
         <Text style={styles.center}>Screen: LoginView</Text>
