@@ -11,28 +11,15 @@ class ProfileView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style = {styles.center}> Welcome {this.props.username}, we are excited to help! What are you looking to do today?</Text>
-          
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Record New Data')}>
-            <Text style={styles.creamText}>Record New Data</Text>
-          </TouchableOpacity>
+          <Text style={styles.title}>ACLTech</Text>
+          <Text style={styles.center}>Welcome! Please login or signup to continue.</Text>
 
           <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Past Data View')}>
-            <Text style={styles.creamText}>View Past Data</Text>
+            <Text style={styles.creamText}>Delete Data and Account</Text>
           </TouchableOpacity>
+          
 
-          <Ionicons 
-            style = {styles.center} 
-            name={'person-circle-outline'} 
-            size = {80}
-            onPress = {() => this.props.navigation.navigate('Your Profile')}
-          />
-
-          <TouchableOpacity style={styles.smallBold} onPress={() => this.props.setAccessToken(false)}>
-            <Text style={styles.creamText}>Log Out</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.center}> Screen: ProfileView Screen </Text>
+          <Text style={styles.center}> Screen: ProfileSpecifics Screen </Text>
         </ScrollView>
       </View>
     );

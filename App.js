@@ -8,6 +8,7 @@ import SignupView from "./SignupView";
 import ProfileView from "./ProfileView";
 import ViewPastData from "./ViewPastData";
 import RecordDataView from "./RecordDataView";
+import ProfileSpecifics from "./ProfileSpecifics";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -91,6 +92,12 @@ class App extends React.Component {
               </Stack.Screen>
 
               <Stack.Screen name={"Record New Data"}>
+                {(props) => (
+                  <RecordDataView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Your Profile"}>
                 {(props) => (
                   <RecordDataView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
