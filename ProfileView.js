@@ -1,18 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
 
-// Will have to think about if bottom tab navigation is the best choice
-// Maybe having another stack is not a bad idea. This it would be easier to implement a button system.
-
-
 class ProfileView extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    // console.log("Mounting");
-    // this.get_data();
   }
 
   render() {
