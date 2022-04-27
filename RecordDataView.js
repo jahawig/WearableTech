@@ -1,20 +1,32 @@
 import React from "react";
-import { Alert, Modal, Pressable, StyleSheet, TextInput, Button, View, Text, ScrollView } from "react-native";
-import { Card } from "react-native-elements";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { CheckBox } from "react-native-elements";
+import { useState } from "react";
 
 class ExercisesView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      isSelected: false
     }
   }
+  setSelection
+
+  setSelection = (selected) => {
+    this.setState({ isSelected: selected });
+  };
+
+
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
+          <Text style={styles.title}>Data Collection Process</Text>
+          <Text style={styles.center}>- Ensure that sensors are fully charged</Text>
+          
+
           <Text style={styles.center}>Screen: Record Data</Text>
         </ScrollView>
       </View>
@@ -26,6 +38,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    alignContent: "center",
     marginHorizontal: 30,
   },
   title: {
@@ -33,7 +46,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     fontWeight: "bold",
     color: '#660000',
-    fontSize: 36,
+    fontSize: 30,
   },
   input: {
     borderWidth: 1,
@@ -55,21 +68,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: "white",
-    borderRadius: 20,
-    padding: 25,
-    alignItems: "center",
-    shadowColor: "#660000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5
   },
   button: {
     borderRadius: 20,
@@ -103,6 +101,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: '#660000',
     fontSize: 28,
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  label: {
+    margin: 8,
   },
 });
 

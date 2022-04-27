@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#800000",
     fontWeight: "bold",
     fontSize: 18,
+    borderRadius: 25
   },
   button: {
     alignItems: "center",
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     marginTop:20,
     marginBottom:10,
     marginRight:15,
+    borderRadius: 25
   }
 });
 

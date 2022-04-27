@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
   center: {
     textAlign: "center",
     marginVertical: 10,
+    fontWeight: "bold"
   },
   creamText: {
     textAlign: "center",
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#800000",
     fontWeight: "bold",
     fontSize: 18,
+    borderRadius: 25
   },
 });
 
