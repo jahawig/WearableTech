@@ -25,7 +25,7 @@ class App extends React.Component {
     // Change this to false before I am done
     this.state = {
       logged: true,
-      username: undefined,
+      username: "username",
     };
   }
 

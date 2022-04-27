@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
+import { StyleSheet, Alert, Text, View, TouchableOpacity, Button, TextInput, ScrollView } from "react-native";
 
 class LoginView extends React.Component {
   constructor(props) {
@@ -10,42 +10,49 @@ class LoginView extends React.Component {
     };
   }
 
+  test_log(){
+    if(this.state.username = ""){
+      console.log(this.state.username);
+      Alert.alert("Username is empty!");
+      return;
+    } else {
+      this.props.setAccessToken(true);
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-        <Text style={styles.title}>ACLTech</Text>
-        <Text style={styles.center}>Welcome! Please login or signup to continue.</Text>
+          <Text style={styles.title}>ACLTech</Text>
+          <Text style={styles.center}>Welcome! Please login or signup to continue.</Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          onChangeText={(name) => this.setState({ username: name })}
-          value = {this.state.username}
-        />
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            onChangeText={(name) => this.setState({ username: name })}
+            value={this.state.username}
+          />
 
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          onChangeText={(pw) => this.setState({ password: pw })}
-          value = {this.state.password}
-        />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            onChangeText={(pw) => this.setState({ password: pw })}
+            value={this.state.password}
+          />
 
-        {/* To navigate to another component, use this.props.navigation.navigate( ' Screen Name ' ).*/}
-
-
+          {/* To navigate to another component, use this.props.navigation.navigate( ' Screen Name ' ).*/}
           {/* Button to take the filled in fields and login*/}
-          <Button
-            title="LOGIN"
-            onPress={() => this.props.setAccessToken(true)}
-          />
 
-          <Button
-            title="SIGNUP"
-            onPress={() => this.props.navigation.navigate('SignUp')}
-          />
+          <TouchableOpacity style={styles.smallBold} onPress={() => this.test_log()}>
+            <Text style={styles.creamText}>LOGIN</Text>
+          </TouchableOpacity>
 
-        <Text style={styles.center}>Screen: LoginView</Text>
+          <TouchableOpacity style={styles.smallBold} onPress={() => this.props.navigation.navigate('SignUp')}>
+            <Text style={styles.creamText}>SIGNUP</Text>
+          </TouchableOpacity>
+
+          <Text style={styles.center}>Screen: LoginView</Text>
         </ScrollView>
       </View>
     );
@@ -78,6 +85,21 @@ const styles = StyleSheet.create({
   center: {
     textAlign: "center",
     marginVertical: 10,
+  },
+  creamText: {
+    textAlign: "center",
+    marginVertical: 10,
+    fontWeight: "bold",
+    fontSize: 20,
+    color: "#fff1d0",
+  },
+  smallBold: {
+    textAlign: "center",
+    marginVertical: 10,
+    marginHorizontal: 60,
+    backgroundColor: "#800000",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 });
 
