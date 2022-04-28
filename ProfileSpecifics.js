@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity, ScrollView } from "react-native";
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Alert } from "react-native";
 
 class ProfileView extends React.Component {
   constructor(props) {
@@ -12,10 +11,18 @@ class ProfileView extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
           <Text style={styles.title}>ACLTech</Text>
-          <Text style={styles.center}>Welcome! Please login or signup to continue.</Text>
+          <Text style={styles.center}>Welcome to your profile settings.</Text>
 
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Past Data View')}>
-            <Text style={styles.creamText}>Delete Data and Account</Text>
+          <TouchableOpacity style={styles.smallBold} onPress={() => Alert.alert("Your data has been deleted")}>
+            <Text style={styles.creamText}>Share Data</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallBold} onPress={() => Alert.alert("Your data has been deleted")}>
+            <Text style={styles.creamText}>Delete Data</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallBold} onPress={() => this.props.setAccessToken(false)}>
+            <Text style={styles.creamText}>Delete Account</Text>
           </TouchableOpacity>
           
 
@@ -57,7 +64,23 @@ const styles = StyleSheet.create({
     marginTop:20,
     marginBottom:10,
     marginRight:15,
-  }
+  },
+  smallBold: {
+    textAlign: "center",
+    marginVertical: 10,
+    marginHorizontal: 60,
+    backgroundColor: "#800000",
+    fontWeight: "bold",
+    fontSize: 18,
+    borderRadius: 25
+  },
+  title: {
+    textAlign: "center",
+    marginVertical: 10,
+    fontWeight: "bold",
+    color: '#660000',
+    fontSize: 36,
+  },
 });
 
 export default ProfileView;

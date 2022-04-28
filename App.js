@@ -99,11 +99,23 @@ class App extends React.Component {
 
               <Stack.Screen name={"Your Profile"}>
                 {(props) => (
-                  <RecordDataView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                  <ProfileSpecifics {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
               </Stack.Screen>
 
               <Stack.Screen name={"Calibration"}>
+                {(props) => (
+                  <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Good"}>
+                {(props) => (
+                  <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Bad"}>
                 {(props) => (
                   <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}

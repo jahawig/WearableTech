@@ -1,14 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from "react-native";
-import { CheckBox } from "react-native-elements";
+import Video from "react-native-video";
+import calibrate from "./calibrate_swing.mp4"
 
 class ExercisesView extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      selected: false,
-      selected1: false,
     }
   }
 
@@ -33,6 +32,13 @@ const styles = StyleSheet.create({
   center: {
     textAlign: "center",
     marginVertical: 10,
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
   },
 });
 
