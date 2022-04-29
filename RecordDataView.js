@@ -10,6 +10,7 @@ class ExercisesView extends React.Component {
       selected: false,
       selected1: false,
       selected2: false,
+      selected3: false,
     }
   }
 
@@ -23,7 +24,7 @@ class ExercisesView extends React.Component {
             checked={this.state.selected}
             onPress={() => this.setState({ selected: !this.state.selected })}
           />
-          
+
           <CheckBox
             title='Are your sensors fully charged?'
             checked={this.state.selected1}
@@ -36,7 +37,13 @@ class ExercisesView extends React.Component {
             onPress={() => this.setState({ selected2: !this.state.selected2 })}
           />
 
-          <TouchableOpacity style={this.state.selected && this.state.selected1 && this.state.selected2 ? styles.smallBold : styles.disabled } onPress={() => this.props.navigation.navigate("Calibration") }>
+          <CheckBox
+            title='Ready to calibrate?'
+            checked={this.state.selected3}
+            onPress={() => this.setState({ selected3: !this.state.selected3 })}
+          />
+
+          <TouchableOpacity style={this.state.selected && this.state.selected1 && this.state.selected2 && this.state.selected3 ? styles.smallBold : styles.disabled} onPress={() => this.props.navigation.navigate("Calibration")}>
             <Text style={styles.creamText}>Begin Calibration</Text>
           </TouchableOpacity>
 
@@ -98,7 +105,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center"
   },
-  creamText:{
+  creamText: {
     textAlign: "center",
     marginVertical: 10,
     fontWeight: "bold",
