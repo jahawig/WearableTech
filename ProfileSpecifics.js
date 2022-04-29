@@ -13,7 +13,11 @@ class ProfileView extends React.Component {
           <Text style={styles.title}>ACLTech</Text>
           <Text style={styles.center}>Welcome to your profile settings.</Text>
 
-          <TouchableOpacity style={styles.smallBold} onPress={() => Alert.alert("Your data has been deleted")}>
+          <TouchableOpacity style={styles.greenBold} onPress={() => Alert.alert("Taking you to health and knee training page!")}>
+            <Text style={styles.creamText}>Health Resources</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.greenBold} onPress={() => Alert.alert("Your data has been exported to your email!")}>
             <Text style={styles.creamText}>Share Data</Text>
           </TouchableOpacity>
 
@@ -80,6 +84,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: '#660000',
     fontSize: 36,
+  },
+  greenBold: {
+    textAlign: "center",
+    marginVertical: 10,
+    marginHorizontal: 60,
+    backgroundColor: "green",
+    fontWeight: "bold",
+    fontSize: 18,
+    borderRadius: 25
   },
 });
 

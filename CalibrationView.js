@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from "react-native";
-import Video from "react-native-video";
-import calibrate from "./calibrate_swing.mp4"
+import { Image } from "react-native-elements";
 
 class ExercisesView extends React.Component {
 
@@ -10,6 +9,8 @@ class ExercisesView extends React.Component {
     this.state = {
     }
   }
+
+
 
   render() {
     return (
@@ -39,6 +40,10 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
   },
 });
 

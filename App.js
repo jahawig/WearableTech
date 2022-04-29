@@ -10,6 +10,9 @@ import ViewPastData from "./ViewPastData";
 import RecordDataView from "./RecordDataView";
 import ProfileSpecifics from "./ProfileSpecifics";
 import CalibrationView from "./CalibrationView";
+import GoodCalibration from "./GoodCalibration";
+import BadCalibration from "./BadCalibration";
+import Data1 from './Data1';
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -111,13 +114,19 @@ class App extends React.Component {
 
               <Stack.Screen name={"Good"}>
                 {(props) => (
-                  <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                  <GoodCalibration {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
               </Stack.Screen>
 
               <Stack.Screen name={"Bad"}>
                 {(props) => (
-                  <CalibrationView {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                  <BadCalibration {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name={"Data1"}>
+                {(props) => (
+                  <Data1 {...props} setAccessToken={this.setAccessToken} getAccessToken={this.getAccessToken} getUsername={this.getUsername} token = {this.state.accessToken} username = {this.state.username}/>
                 )}
               </Stack.Screen>
 
