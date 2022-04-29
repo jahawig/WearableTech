@@ -15,11 +15,11 @@ class ExercisesView extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Text style={styles.center}>Calibration: Successful</Text>
+          <Text style={styles.title}>Calibration: Unsuccessful</Text>
           <Ionicons
             style={styles.center}
-            name={'person-circle-outline'}
-            size={80}
+            name={'alert-outline'}
+            size={100}
           />
           <Text>An error was encountered during your Calibration</Text>
            <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Record New Data')}>
@@ -58,6 +58,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     color: "#fff1d0",
+  },
+  title: {
+    textAlign: "center",
+    marginVertical: 10,
+    fontWeight: "bold",
+    color: '#660000',
+    fontSize: 30,
   },
 });
 
